@@ -5,18 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nadz Tools</title>
   <style>
-    /* Import font kustom */
+    /* Font Kustom */
     @font-face {
       font-family: 'PPMori';
       src: url('./PPMori-SemiBold.woff2') format('woff2');
       font-weight: 600;
       font-style: normal;
-      font-display: swap;
     }
 
     :root {
       --fg: #e8e0ff;
-      --vio: #200053;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,7 +34,7 @@
       overflow: hidden;
     }
 
-    /* Grid efek */
+    /* Grid efek futuristik */
     .grid {
       position: fixed;
       inset: 0;
@@ -49,17 +47,15 @@
       mix-blend-mode: soft-light;
       animation: drift 22s linear infinite;
     }
-    @keyframes drift {
-      to { transform: translateY(24px); }
-    }
+    @keyframes drift { to { transform: translateY(24px); } }
 
-    /* Teks COMING SOON dalam style capsule + glow */
+    /* Teks UTAMA (COMING SOON) dibuat seperti capsule */
     h1 {
-      font-size: clamp(28px, 7vw, 100px);
+      font-size: clamp(20px, 5vw, 70px); /* << ukuran sudah diperkecil */
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.35em;
-      padding: 14px 42px;
+      padding: 12px 36px;
       border: 1px solid rgba(136,69,255,0.4);
       border-radius: 999px;
       background: rgba(32,0,83,0.18);
@@ -71,11 +67,10 @@
         inset 0 0 20px rgba(32,0,83,0.30),
         0 0 25px rgba(136,69,255,0.25);
       backdrop-filter: blur(6px);
-      -webkit-font-smoothing: antialiased;
       text-align: center;
     }
 
-    /* Orbs efek blur */
+    /* Orbs glow efek */
     .orb {
       position: fixed;
       width: 40vmin;
