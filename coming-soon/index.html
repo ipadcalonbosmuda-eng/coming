@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nadz Tools</title>
+  <style>
+    /* Font */
+    @font-face {
+      font-family: 'PPMori';
+      src: url('./PPMori-SemiBold.woff2') format('woff2');
+      font-weight: 600;
+      font-style: normal;
+    }
+
+    :root {
+      --violet:#200053;
+      --text:#e5d9ff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      background:
+        radial-gradient(1200px 800px at 70% -10%, rgba(32,0,83,0.5), transparent 60%),
+        radial-gradient(900px 600px at -20% 100%, rgba(106,0,255,0.4), transparent 60%),
+        #000;
+      font-family: 'PPMori', sans-serif;
+      color: var(--text);
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: clamp(48px, 10vw, 160px);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+      line-height: 1.1;
+      text-shadow:
+        0 0 10px rgba(173,123,255,0.8),
+        0 0 30px rgba(173,123,255,0.6),
+        0 0 60px rgba(120,0,255,0.4);
+    }
+  </style>
+</head>
+<body>
+  <h1>COMING<br>SOON</h1>
+</body>
+</html>
