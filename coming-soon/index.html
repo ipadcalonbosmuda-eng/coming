@@ -5,101 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nadz Tools</title>
   <style>
-    /* Font kustom – taruh PPMori-SemiBold.woff2 di folder yang sama dengan file ini */
-    @font-face{
-      font-family: "PPMori";
-      src: url("./PPMori-SemiBold.woff2") format("woff2");
+    /* Import font kustom */
+    @font-face {
+      font-family: 'PPMori';
+      src: url('./PPMori-SemiBold.woff2') format('woff2');
       font-weight: 600;
       font-style: normal;
       font-display: swap;
     }
 
-    :root{
-      --ink:#000000;
-      --vio:#200053;      /* warna campuran yang kamu minta */
-      --fg:#efeaff;
+    :root {
+      --fg: #e8e0ff;
+      --vio: #200053;
     }
 
-    /* Reset ringkas */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      color:var(--fg);
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
       background:
         radial-gradient(1200px 800px at 70% -10%, rgba(32,0,83,0.55), transparent 60%),
         radial-gradient(900px 600px at -20% 100%, rgba(106,0,255,0.35), transparent 60%),
-        linear-gradient(180deg, #05030a 0%, #000 100%);
-      background-color:#000; /* fallback */
-      min-height:100dvh;
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      font-family:"PPMori", ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        #000;
+      color: var(--fg);
+      font-family: 'PPMori', sans-serif;
+      overflow: hidden;
     }
 
-    /* Grid halus (opsional, buat rasa futuristik) */
-    .grid{
-      position: fixed; inset: 0; pointer-events:none;
+    /* Grid efek */
+    .grid {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
       background-image:
-        linear-gradient(transparent 0 23px, rgba(255,255,255,0.04) 24px),
-        linear-gradient(90deg, transparent 0 23px, rgba(255,255,255,0.04) 24px);
-      background-size:24px 24px;
-      mix-blend-mode:soft-light;
-      animation: drift 24s linear infinite;
-      opacity:.28;
+        linear-gradient(transparent 0 23px, rgba(255,255,255,0.03) 24px),
+        linear-gradient(90deg, transparent 0 23px, rgba(255,255,255,0.03) 24px);
+      background-size: 24px 24px;
+      opacity: 0.2;
+      mix-blend-mode: soft-light;
+      animation: drift 22s linear infinite;
     }
-    @keyframes drift{to{transform:translateY(24px)}}
-
-    main{
-      text-align:center;
-      padding: clamp(16px, 3vw, 48px);
+    @keyframes drift {
+      to { transform: translateY(24px); }
     }
 
-    /* Hanya satu teks: COMING SOON */
-    h1{
-      margin:0;
-      text-transform:uppercase;
-      line-height:0.95;
-      letter-spacing:.06em;
-      /* ukuran responsif: kecil di HP, super besar di layar lebar */
-      font-size: clamp(42px, 10vw, 200px);
-      /* Glow lembut – tidak dobel teks */
+    /* Teks COMING SOON dalam style capsule + glow */
+    h1 {
+      font-size: clamp(28px, 7vw, 100px);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.35em;
+      padding: 14px 42px;
+      border: 1px solid rgba(136,69,255,0.4);
+      border-radius: 999px;
+      background: rgba(32,0,83,0.18);
+      color: #d8ccff;
       text-shadow:
-        0 0 10px rgba(136,69,255,.65),
-        0 0 30px rgba(136,69,255,.45),
-        0 0 60px rgba(136,69,255,.30);
-      /* Untuk mencegah efek “teks dobel” pada beberapa GPU */
+        0 0 8px rgba(136,69,255,0.6),
+        0 0 16px rgba(136,69,255,0.4);
+      box-shadow:
+        inset 0 0 20px rgba(32,0,83,0.30),
+        0 0 25px rgba(136,69,255,0.25);
+      backdrop-filter: blur(6px);
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+      text-align: center;
     }
 
-    /* Bola cahaya samar */
-    .orb{
-      position: fixed; width: 44vmin; height: 44vmin; border-radius:50%;
-      filter: blur(40px); opacity:.22; pointer-events:none;
+    /* Orbs efek blur */
+    .orb {
+      position: fixed;
+      width: 40vmin;
+      height: 40vmin;
+      border-radius: 50%;
       background: radial-gradient(circle at 30% 30%, rgba(136,69,255,.9), rgba(32,0,83,0) 60%);
+      filter: blur(40px);
+      opacity: .22;
+      pointer-events: none;
       animation: float 18s ease-in-out infinite;
     }
-    .orb.b{ left:-12vmin; top:12vmin; animation-delay:-4s}
-    .orb.c{ right:-14vmin; bottom:-8vmin; animation-delay:-9s}
-    @keyframes float{
-      50%{ transform: translate(6vmin,-4vmin) scale(1.05) }
+    .orb.b { left: -10vmin; top: 10vmin; animation-delay: -4s; }
+    .orb.c { right: -12vmin; bottom: -6vmin; animation-delay: -8s; }
+
+    @keyframes float {
+      0% { transform: translate(0,0) scale(1); }
+      50% { transform: translate(6vmin,-4vmin) scale(1.05); }
+      100% { transform: translate(0,0) scale(1); }
     }
 
-    @media (prefers-reduced-motion: reduce){
-      .grid,.orb{ animation:none }
+    @media (prefers-reduced-motion: reduce) {
+      .grid, .orb { animation: none; }
     }
   </style>
 </head>
 <body>
   <div class="grid"></div>
-  <div class="orb a"></div>
+  <div class="orb"></div>
   <div class="orb b"></div>
   <div class="orb c"></div>
 
-  <main aria-label="Coming Soon">
-    <h1>COMING SOON</h1>
-  </main>
+  <h1>COMING SOON</h1>
 </body>
 </html>
