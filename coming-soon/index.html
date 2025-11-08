@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nadz Tools</title>
   <style>
-    /* Font Kustom */
     @font-face {
       font-family: 'PPMori';
       src: url('./PPMori-SemiBold.woff2') format('woff2');
@@ -34,7 +33,6 @@
       overflow: hidden;
     }
 
-    /* Grid efek futuristik */
     .grid {
       position: fixed;
       inset: 0;
@@ -49,13 +47,12 @@
     }
     @keyframes drift { to { transform: translateY(24px); } }
 
-    /* Teks UTAMA (COMING SOON) dibuat seperti capsule */
     h1 {
-      font-size: clamp(20px, 5vw, 70px); /* << ukuran sudah diperkecil */
+      font-size: clamp(12px, 2vw, 28px); /* <<< 2.5x lebih kecil */
       font-weight: 400;
       text-transform: uppercase;
-      letter-spacing: 0.35em;
-      padding: 12px 36px;
+      letter-spacing: 0.28em;
+      padding: 6px 18px;
       border: 1px solid rgba(136,69,255,0.4);
       border-radius: 999px;
       background: rgba(32,0,83,0.18);
@@ -70,7 +67,6 @@
       text-align: center;
     }
 
-    /* Orbs glow efek */
     .orb {
       position: fixed;
       width: 40vmin;
@@ -86,9 +82,7 @@
     .orb.c { right: -12vmin; bottom: -6vmin; animation-delay: -8s; }
 
     @keyframes float {
-      0% { transform: translate(0,0) scale(1); }
       50% { transform: translate(6vmin,-4vmin) scale(1.05); }
-      100% { transform: translate(0,0) scale(1); }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -105,3 +99,4 @@
   <h1>COMING SOON</h1>
 </body>
 </html>
+
